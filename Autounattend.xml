@@ -240,6 +240,14 @@ Windows 10 Answer File
             <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\chocolatey-apps.cmd  cmd /c %i:\chocolatey-apps.cmd"</CommandLine>
           </SynchronousCommand>
 
+          <!-- Disable autologon -->
+          <SynchronousCommand wcm:action="add">
+            <Order>52</Order>
+            <Description>Disable autologon</Description>
+            <RequiresUserInput>false</RequiresUserInput>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\disableAutologon.ps1  cmd /c powershell -file %i:\disableAutologon.ps1"</CommandLine>
+          </SynchronousCommand>
+
           <!-- Disable Cortana Search bar -->
           <SynchronousCommand wcm:action="add">
               <CommandLine>reg.exe ADD HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v SearchboxTaskbarMode /t REG_DWORD /d 0</CommandLine>
