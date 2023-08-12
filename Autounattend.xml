@@ -248,6 +248,14 @@ Windows 10 Answer File
             <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\disableAutologon.ps1  cmd /c powershell -file %i:\disableAutologon.ps1"</CommandLine>
           </SynchronousCommand>
 
+          <!-- Install Chocolatey scheduled task to update packages -->
+          <SynchronousCommand wcm:action="add">
+            <Order>53</Order>
+            <Description>Install Chocolatey scheduled task</Description>
+            <RequiresUserInput>false</RequiresUserInput>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\installChocolateyTask.ps1  cmd /c powershell -file %i:\installChocolateyTask.ps1"</CommandLine>
+          </SynchronousCommand>
+
           <!-- Disable Cortana Search bar -->
           <SynchronousCommand wcm:action="add">
               <CommandLine>reg.exe ADD HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v SearchboxTaskbarMode /t REG_DWORD /d 0</CommandLine>

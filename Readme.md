@@ -73,3 +73,5 @@ These files allow for the Auto Unattnded install of Windows 10 with out user int
 * win-updates.ps1 - Checks and install any that are available.
 * changeAdminPassword.ps1 - Changes admin passwords. You can define a second admin if you want
 * disableAutologon.ps1 - Disables the autologon set by the Windows setup
+* Update Chocolatey packages.xml - Automatic Windows task to update chocolatey packages every Monday at 08:00. If it isn't possible at that time, the task will be autorestarted every two hours 10 times.
+* installChocolateyTask.ps1 - Imports the "Update Chocolatey packages.xml" file into the Windows task scheduler.
