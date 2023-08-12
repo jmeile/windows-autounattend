@@ -243,8 +243,18 @@ Windows 10 Answer File
           <!-- Disable Cortana Search bar -->
           <SynchronousCommand wcm:action="add">
               <CommandLine>reg.exe ADD HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v SearchboxTaskbarMode /t REG_DWORD /d 0</CommandLine>
-              <Order>97</Order>
+              <Order>96</Order>
               <Description>Disable Cortana</Description>
+          </SynchronousCommand>
+          
+          <!-- Changes the admin passwords
+               Make sure to have this after all the tasks have been done
+            -->
+          <SynchronousCommand wcm:action="add">
+            <Order>97</Order>
+            <Description>Change admins' passwords</Description>
+            <RequiresUserInput>false</RequiresUserInput>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\changeAdminPassword.ps1  cmd /c powershell -file %i:\changeAdminPassword.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Enable UAC -->

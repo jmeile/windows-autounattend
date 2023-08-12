@@ -71,3 +71,4 @@ These files allow for the Auto Unattnded install of Windows 10 with out user int
 * microsoft-updates.bat - Configures Windows Updates.
 * remoteOneDrive.ps1 - Disables One Drive from Starting on Boot.
 * win-updates.ps1 - Checks and install any that are available.
+* changeAdminPassword.ps1 - Changes admin passwords. You can define a second admin if you want
