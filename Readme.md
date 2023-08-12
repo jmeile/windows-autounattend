@@ -53,7 +53,45 @@ These files allow for the Auto Unattnded install of Windows 10 with out user int
    
    Input locales can be found here:
    https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-input-locales-for-windows-language-packs?view=windows-11
-7. Connect the PC to the network and make sure that it will get an ip address:
+7. Change the following fields from the Autounattend.xml by your own:
+   * "moe" -> User that you want to setup during the installation. It will be and administrator.
+   * "Comprofix" -> Replace it by your company. This field is optional and can be deleted
+   * If need to have two or more admin accounts, then add them on the "UserAccounts" section, for example:
+   ```
+    <UserAccounts>
+      <LocalAccounts>
+        <LocalAccount wcm:action="add">
+          <Password>
+            <Value></Value>
+            <PlainText>true</PlainText>
+          </Password>
+          <Description></Description>
+          <DisplayName>Moe's admin</DisplayName>
+          <Group>Administrators</Group>
+          <Name>moe</Name>
+        </LocalAccount>
+        <LocalAccount wcm:action="add">
+          <Password>
+            <Value></Value>
+            <PlainText>true</PlainText>
+          </Password>
+          <Description></Description>
+          <DisplayName>Second Admin</DisplayName>
+          <Group>Administrators</Group>
+          <Name>adminusr</Name>
+        </LocalAccount>
+      </LocalAccounts>
+    </UserAccounts>
+    ```
+    This creates two accounts: "moe" and "adminusr" with an empty password. You
+    will need to edit the changeAdminPassword.ps1 and add "adminusr" to it. This
+    will change the passwords for both accounts.
+    
+    Please note that if you want to change "moe" account by your own, then you
+    will have to search it on the autounattend.xml file the following fields:
+    * **<Username>moe</Username>** -> on the <AutoLogon> section
+    * Under **<UserAccounts>** change the account data
+8. Connect the PC to the network and make sure that it will get an ip address:
    you either setup a dynamic IP or added the MAC address to the DHCP server.
    One thing I do is to work with USB to Ethernet adapter, then I pack the
    network drive on the stick. This works pretty well.
