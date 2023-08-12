@@ -89,8 +89,8 @@ These files allow for the Auto Unattnded install of Windows 10 with out user int
     
     Please note that if you want to change "moe" account by your own, then you
     will have to search it on the autounattend.xml file the following fields:
-    * **<Username>moe</Username>** -> on the <AutoLogon> section
-    * Under **<UserAccounts>** change the account data
+    * **&lt;Username>moe&lt;/Username>** -> on the &lt;AutoLogon> section
+    * Under **&lt;UserAccounts>** change the account data
 8. Connect the PC to the network and make sure that it will get an ip address:
    you either setup a dynamic IP or added the MAC address to the DHCP server.
    One thing I do is to work with USB to Ethernet adapter, then I pack the
