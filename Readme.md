@@ -4,29 +4,29 @@
 These files allow for the Auto Unattnded install of Windows 10 with out user interaction. This will also install software using chocolatey for Windows.
 
 <b>NOTES:</b>
-a. An Internet Connection is required during installation.
-b. The autounattend.xml file only supports MDR installations. For UEFI, you will
-   need to modify it. You will have to add "EFI" partitions.
-c. The provided autounattend.xml file is intended for a PC with only one HDD/SSD.
-   If you intend to use it with more than one hard drive, then you will have to
-   first see what's your disk layout before the installation: take note of the
-   disk numbers and then modify the "DiskID" sections. A usefull tool for doing
-   this is "diskpart", which can be used before the installation process begins;
-   just press "SHIFT + F10 and then type "diskpart" on the console. On the GUI
-   from the installation itself, you will also see this.
+* An Internet Connection is required during installation.
+* The autounattend.xml file only supports MDR installations. For UEFI, you will
+  need to modify it. You will have to add "EFI" partitions.
+* The provided autounattend.xml file is intended for a PC with only one HDD/SSD.
+  If you intend to use it with more than one hard drive, then you will have to
+  first see what's your disk layout before the installation: take note of the
+  disk numbers and then modify the "DiskID" sections. A usefull tool for doing
+  this is "diskpart", which can be used before the installation process begins;
+  just press "SHIFT + F10 and then type "diskpart" on the console. On the GUI
+  from the installation itself, you will also see this.
 
-   You may also set "WillShowUI" inside: "DiskConfiguration" and "ImageInstall"
-   to "Always" to troubleshoot your installation, then you can set "DiskID" to
-   the right value. On my case this was useful sometimes.
+  You may also set "WillShowUI" inside: "DiskConfiguration" and "ImageInstall"
+  to "Always" to troubleshoot your installation, then you can set "DiskID" to
+  the right value. On my case this was useful sometimes.
 
-   I will really advice you to unplug other HDD/SSDs at first and do the
-   installation. It is much easier this way.
-d. RAID can be a problem. It can be that Windows don't recognize the disks
-   during the installation. So, if you can, try to use AHCI. If not, then look
-   for the RAID drivers and save them to the "Drivers" and "Drivers/WinPE" paths
-   from your USB; if they don't exist, then create them. Another thing to
-   consider here is the HDD/SSD layout. You may have to use the diskpart tool to
-   install Windows on the corrent media.
+  I will really advice you to unplug other HDD/SSDs at first and do the
+  installation. It is much easier this way.
+* RAID can be a problem. It can be that Windows don't recognize the disks
+  during the installation. So, if you can, try to use AHCI. If not, then look
+  for the RAID drivers and save them to the "Drivers" and "Drivers/WinPE" paths
+  from your USB; if they don't exist, then create them. Another thing to
+  consider here is the HDD/SSD layout. You may have to use the diskpart tool to
+  install Windows on the corrent media.
 
 ## Installation
 
