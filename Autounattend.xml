@@ -53,6 +53,7 @@ Windows 10 Answer File
             <DiskID>0</DiskID>
             <WillWipeDisk>true</WillWipeDisk>
           </Disk>
+          <WillShowUI>OnError</WillShowUI>
         </DiskConfiguration>
         <ImageInstall>
           <OSImage>
@@ -60,6 +61,7 @@ Windows 10 Answer File
               <DiskID>0</DiskID>
               <PartitionID>2</PartitionID>
             </InstallTo>
+            <WillShowUI>OnError</WillShowUI>
             <InstallToAvailablePartition>false</InstallToAvailablePartition>
           </OSImage>
         </ImageInstall>
@@ -67,10 +69,11 @@ Windows 10 Answer File
           <AcceptEula>true</AcceptEula>
           <FullName>moe</FullName>
           <Organization>Comprofix</Organization>
-          <!--
-                NOTE: Update the <Key> element to match the Key you are using. Current Key is the KMS Key designed for Installs
-                and sysprep.
-                Product Key from http://technet.microsoft.com/en-us/library/jj612867.aspx
+            <!--
+                NOTE: Update the <Key> element to match the Key you are using.
+                Current Key is the KMS Key designed for volume licensing editions.
+                Product Key from:
+                http://technet.microsoft.com/en-us/library/jj612867.aspx
             -->
             <ProductKey>
               <Key>W269N-WFGWX-YVC9B-4J6C9-T83GX</Key>
@@ -79,10 +82,39 @@ Windows 10 Answer File
         </UserData>
         <EnableFirewall>true</EnableFirewall>
       </component>
+      <component name="Microsoft-Windows-PnpCustomizationsWinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <DriverPaths>
+          <PathAndCredentials wcm:keyValue="102" wcm:action="add">
+            <Path>D:\Drivers\WinPE</Path>
+          </PathAndCredentials>
+          <PathAndCredentials wcm:action="add" wcm:keyValue="101">
+            <Path>C:\Drivers\WinPE</Path>
+          </PathAndCredentials>
+          <PathAndCredentials wcm:action="add" wcm:keyValue="103">
+            <Path>E:\Drivers\WinPE</Path>
+          </PathAndCredentials>
+        </DriverPaths>
+      </component>
     </settings>
     <settings pass="offlineServicing">
       <component name="Microsoft-Windows-LUA-Settings" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <EnableLUA>false</EnableLUA>
+      </component>
+      <component name="Microsoft-Windows-PnpCustomizationsNonWinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <DriverPaths>
+          <PathAndCredentials wcm:action="add" wcm:keyValue="1">
+            <Credentials />
+            <Path>C:\Drivers</Path>
+          </PathAndCredentials>
+          <PathAndCredentials wcm:action="add" wcm:keyValue="2">
+            <Credentials />
+            <Path>D:\Drivers</Path>
+          </PathAndCredentials>
+          <PathAndCredentials wcm:action="add" wcm:keyValue="23">
+            <Credentials />
+            <Path>E:\Drivers</Path>
+          </PathAndCredentials>
+        </DriverPaths>
       </component>
     </settings>
     <settings pass="generalize">
