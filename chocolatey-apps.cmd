@@ -4,9 +4,7 @@ set CI=%systemdrive%\ProgramData\Chocolatey\choco.exe install
 
 %CI% chocolateygui
 %CI% 7zip
-%CI% flashplayerplugin
 %CI% googlechrome
-%CI% jre8
 %CI% foxitreader
 %CI% cdburnderxp
 %CI% imgburn
