@@ -33,7 +33,11 @@ These files allow for the Auto Unattnded install of Windows 10 with out user int
 1. Download the Windows 10 ISO using the Media Creation Tool:
    http://go.microsoft.com/fwlink/?LinkId=691209
 2. Use Rufus to Create a bootable USB Media - https://rufus.akeo.ie/
-3. Copy the files to the root of the USB Device.
+3. Copy the files to the root of the USB Device. You should end with a file
+   structure similar to this one:
+   <USB_DRIVE>:\autounattend.xml
+   <USB_DRIVE>:\Scripts          -> Here the scripts will be stored
+   <USB_DRIVE>:\                 -> Here you should see other Windows Setup files
 4. Modify chocolatey-apps.cmd according to your needs. A list of chocolatey
    packages can be found here: https://chocolatey.org/packages
 5. Save the network or any other drivers that you need to the paths:

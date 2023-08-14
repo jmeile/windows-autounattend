@@ -14,8 +14,7 @@ Windows 10 Answer File
         <InputLocale>0807:00000807</InputLocale>
         <SystemLocale>en-US</SystemLocale>
         <UILanguage>en-US</UILanguage>
-        <UserLocale>de-CH</UserLocale>		
-        <SystemLocale>en-US</SystemLocale>
+        <UserLocale>de-CH</UserLocale>
       </component>
       <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <DiskConfiguration>
@@ -53,6 +52,7 @@ Windows 10 Answer File
             <DiskID>0</DiskID>
             <WillWipeDisk>true</WillWipeDisk>
           </Disk>
+          <!-- Set this to Always if you are having problems -->
           <WillShowUI>OnError</WillShowUI>
         </DiskConfiguration>
         <ImageInstall>
@@ -61,23 +61,30 @@ Windows 10 Answer File
               <DiskID>0</DiskID>
               <PartitionID>2</PartitionID>
             </InstallTo>
+            <!-- Set this to Always if you are having problems -->
             <WillShowUI>OnError</WillShowUI>
             <InstallToAvailablePartition>false</InstallToAvailablePartition>
           </OSImage>
         </ImageInstall>
         <UserData>
           <AcceptEula>true</AcceptEula>
-          <!--
-                NOTE: Update the <Key> element to match the Key you are using. Current Key is the KMS Key designed for volume licensing editions.
-                Product Key from http://technet.microsoft.com/en-us/library/jj612867.aspx
-				
-				The ProductKey section is optional and can be removed if you
-				are going to use a digital license
+          <Organization>ETH Zürich</Organization>
+            <!--
+                NOTE: Update the <Key> element to match the Key you are using.
+                Current Key is the KMS Key designed for volume licensing editions.
+                Product Key from:
+                http://technet.microsoft.com/en-us/library/jj612867.aspx
             -->
             <ProductKey>
               <!-- Windows 10 Education -->
               <Key>NW6C2-QMPVW-D7KKK-3GKT6-VCFB2</Key>
-              <WillShowUI>Never</WillShowUI>
+              <!-- Set this to Always if you want to use another version, then
+                   replace the above key by your own or delete it if you are
+                   going to validate windows after or you will use a digital
+                   license, which will be automatically set as soon as you are
+                   connected to the internet
+              -->
+              <WillShowUI>Always</WillShowUI>
             </ProductKey>
         </UserData>
         <EnableFirewall>true</EnableFirewall>
@@ -117,20 +124,24 @@ Windows 10 Answer File
         </DriverPaths>
       </component>
     </settings>
+    <settings pass="generalize">
+      <component name="Microsoft-Windows-Security-SPP" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <SkipRearm>1</SkipRearm>
+      </component>
+    </settings>
     <settings pass="specialize">
-      <component name="Microsoft-Windows-IE-InternetExplorer" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <LocalIntranetSites>*.local</LocalIntranetSites>
-        <Home_Page>https://www.google.ch</Home_Page>
-        <DisableFirstRunWizard>true</DisableFirstRunWizard>
-      </component>
-      <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <TimeZone>W. Europe Standard Time</TimeZone>
-      </component>
       <component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <!-- Swiss German Keyboard -->
+		<!-- Swiss German Keyboard -->
         <InputLocale>0807:00000807</InputLocale>
         <SystemLocale>en-US</SystemLocale>
+        <UILanguage>en-US</UILanguage>
         <UserLocale>de-CH</UserLocale>
+      </component>
+      <component name="Microsoft-Windows-Security-SPP-UX" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <SkipAutoActivation>true</SkipAutoActivation>
+      </component>
+      <component name="Microsoft-Windows-SQMApi" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CEIPEnabled>0</CEIPEnabled>
       </component>
       <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <RunSynchronous>
@@ -145,12 +156,6 @@ Windows 10 Answer File
             <Path>reg add HKLM\System\CurrentControlSet\Control\Network\NewNetworkWindowOff /F</Path>
           </RunSynchronousCommand>
         </RunSynchronous>
-      </component>
-      <component name="Microsoft-Windows-Security-SPP-UX" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <SkipAutoActivation>true</SkipAutoActivation>
-      </component>
-      <component name="Microsoft-Windows-SQMApi" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <CEIPEnabled>0</CEIPEnabled>
       </component>
     </settings>
     <settings pass="oobeSystem">
@@ -194,11 +199,11 @@ Windows 10 Answer File
               <Description></Description>
               <DisplayName>Local Admin</DisplayName>
               <Group>Administrators</Group>
-              <Name>UserAdmin</Name>
+              <Name>userAdmin</Name>
             </LocalAccount>
           </LocalAccounts>
         </UserAccounts>
-        <RegisteredOwner>myAdmin</RegisteredOwner>
+        <RegisteredOrganization>ETH Zürich</RegisteredOrganization>
         <DisableAutoDaylightTimeSet>false</DisableAutoDaylightTimeSet>
         <FirstLogonCommands>
           <SynchronousCommand wcm:action="add">
@@ -223,14 +228,14 @@ Windows 10 Answer File
             <Order>4</Order>
             <Description>Fix Network</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\fixnetwork.ps1  cmd /c powershell -file %i:\fixnetwork.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\fixnetwork.ps1  cmd /c powershell -file %i:\Scripts\fixnetwork.ps1"</CommandLine>
           </SynchronousCommand>
 
           <SynchronousCommand wcm:action="add">
             <Order>20</Order>
             <Description>Disable Updates</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\disableWindowsUpdates.ps1  cmd /c powershell -file %i:\disableWindowsUpdates.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\disableWindowsUpdates.ps1  cmd /c powershell -file %i:\Scripts\disableWindowsUpdates.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Install Chocolatey -->
@@ -238,7 +243,7 @@ Windows 10 Answer File
             <Order>50</Order>
             <Description>Install Chocolatey</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\chocolatey.ps1  cmd /c powershell -file %i:\chocolatey.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\chocolatey.ps1  cmd /c powershell -file %i:\Scripts\chocolatey.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Install Applications via Chocolatey -->
@@ -246,7 +251,7 @@ Windows 10 Answer File
             <Order>51</Order>
             <Description>Install Apps via Chocolatey</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\chocolatey-apps.cmd  cmd /c %i:\chocolatey-apps.cmd"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\chocolatey-apps.cmd  cmd /c %i:\Scripts\chocolatey-apps.cmd"</CommandLine>
           </SynchronousCommand>
 
           <!-- Disable autologon -->
@@ -254,7 +259,7 @@ Windows 10 Answer File
             <Order>52</Order>
             <Description>Disable autologon</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\disableAutologon.ps1  cmd /c powershell -file %i:\disableAutologon.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\disableAutologon.ps1  cmd /c powershell -file %i:\Scripts\disableAutologon.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Install Chocolatey scheduled task to update packages -->
@@ -262,14 +267,7 @@ Windows 10 Answer File
             <Order>53</Order>
             <Description>Install Chocolatey scheduled task</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\installChocolateyTask.ps1  cmd /c powershell -file %i:\installChocolateyTask.ps1"</CommandLine>
-          </SynchronousCommand>
-
-          <!-- Disable Cortana Search bar -->
-          <SynchronousCommand wcm:action="add">
-              <CommandLine>reg.exe ADD HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v SearchboxTaskbarMode /t REG_DWORD /d 0</CommandLine>
-              <Order>96</Order>
-              <Description>Disable Cortana</Description>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\installChocolateyTask.ps1  cmd /c powershell -file %i:\Scripts\installChocolateyTask.ps1"</CommandLine>
           </SynchronousCommand>
           
           <!-- Changes the admin passwords
@@ -279,7 +277,7 @@ Windows 10 Answer File
             <Order>97</Order>
             <Description>Change admins' passwords</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\changeAdminPassword.ps1  cmd /c powershell -file %i:\changeAdminPassword.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\changeAdminPassword.ps1  cmd /c powershell -file %i:\Scripts\changeAdminPassword.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Enable UAC -->
@@ -287,7 +285,7 @@ Windows 10 Answer File
             <Order>98</Order>
             <Description>Enable UAC</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\enableUAC.ps1  cmd /c powershell -file %i:\enableUAC.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\enableUAC.ps1  cmd /c powershell -file %i:\Scripts\enableUAC.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Enable OneDrive Integration -->
@@ -295,7 +293,16 @@ Windows 10 Answer File
             <Order>499</Order>
             <Description>Enable UAC</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\enableOneDrive.ps1  cmd /c powershell -file %i:\enableOneDrive.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\enableOneDrive.ps1  cmd /c powershell -file %i:\Scripts\enableOneDrive.ps1"</CommandLine>
+          </SynchronousCommand>
+		  
+		  
+          <!-- Enable OneDrive Synchronization -->		  
+          <SynchronousCommand wcm:action="add">
+            <Order>99</Order>
+            <Description>Enable OneDrive Synchronization</Description>
+            <RequiresUserInput>false</RequiresUserInput>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\enableOneDrive.ps1  cmd /c powershell -file %i:\Scripts\enableOneDrive.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Restarts System so changes take effect -->
@@ -306,13 +313,4 @@ Windows 10 Answer File
             <CommandLine>cmd.exe /c powershell.exe -command "restart-computer -force"</CommandLine>
           </SynchronousCommand>
 
-        </FirstLogonCommands>
-        <TimeZone>W. Europe Standard Time</TimeZone>
-      </component>
-    </settings>
-    <settings pass="generalize">
-      <component name="Microsoft-Windows-Security-SPP" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <SkipRearm>1</SkipRearm>
-      </component>
-    </settings>
-  </unattend>
+        

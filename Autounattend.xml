@@ -214,14 +214,14 @@ Windows 10 Answer File
             <Order>4</Order>
             <Description>Fix Network</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\fixnetwork.ps1  cmd /c powershell -file %i:\fixnetwork.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\fixnetwork.ps1  cmd /c powershell -file %i:\Scripts\fixnetwork.ps1"</CommandLine>
           </SynchronousCommand>
 
           <SynchronousCommand wcm:action="add">
             <Order>20</Order>
             <Description>Disable Updates</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\disableWindowsUpdates.ps1  cmd /c powershell -file %i:\disableWindowsUpdates.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\disableWindowsUpdates.ps1  cmd /c powershell -file %i:\Scripts\disableWindowsUpdates.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Install Chocolatey -->
@@ -229,7 +229,7 @@ Windows 10 Answer File
             <Order>50</Order>
             <Description>Install Chocolatey</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\chocolatey.ps1  cmd /c powershell -file %i:\chocolatey.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\chocolatey.ps1  cmd /c powershell -file %i:\Scripts\chocolatey.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Install Applications via Chocolatey -->
@@ -237,7 +237,7 @@ Windows 10 Answer File
             <Order>51</Order>
             <Description>Install Apps via Chocolatey</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\chocolatey-apps.cmd  cmd /c %i:\chocolatey-apps.cmd"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\chocolatey-apps.cmd  cmd /c %i:\Scripts\chocolatey-apps.cmd"</CommandLine>
           </SynchronousCommand>
 
           <!-- Disable autologon -->
@@ -245,7 +245,7 @@ Windows 10 Answer File
             <Order>52</Order>
             <Description>Disable autologon</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\disableAutologon.ps1  cmd /c powershell -file %i:\disableAutologon.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\disableAutologon.ps1  cmd /c powershell -file %i:\Scripts\disableAutologon.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Install Chocolatey scheduled task to update packages -->
@@ -253,7 +253,7 @@ Windows 10 Answer File
             <Order>53</Order>
             <Description>Install Chocolatey scheduled task</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\installChocolateyTask.ps1  cmd /c powershell -file %i:\installChocolateyTask.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\installChocolateyTask.ps1  cmd /c powershell -file %i:\Scripts\installChocolateyTask.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Disable Cortana Search bar -->
@@ -270,7 +270,7 @@ Windows 10 Answer File
             <Order>97</Order>
             <Description>Change admins' passwords</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\changeAdminPassword.ps1  cmd /c powershell -file %i:\changeAdminPassword.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\changeAdminPassword.ps1  cmd /c powershell -file %i:\Scripts\changeAdminPassword.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Enable UAC -->
@@ -278,7 +278,7 @@ Windows 10 Answer File
             <Order>98</Order>
             <Description>Enable UAC</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\enableUAC.ps1  cmd /c powershell -file %i:\enableUAC.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\enableUAC.ps1  cmd /c powershell -file %i:\Scripts\enableUAC.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Remove OneDrive Integration -->
@@ -286,7 +286,7 @@ Windows 10 Answer File
             <Order>499</Order>
             <Description>Enable UAC</Description>
             <RequiresUserInput>false</RequiresUserInput>
-            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\removeOneDrive.ps1  cmd /c powershell -file %i:\removeOneDrive.ps1"</CommandLine>
+            <CommandLine>cmd /q /c "FOR %i IN (A B C D E F G H I J K L N M O P Q R S T U V W X Y Z) DO IF EXIST %i:\Scripts\removeOneDrive.ps1  cmd /c powershell -file %i:\Scripts\removeOneDrive.ps1"</CommandLine>
           </SynchronousCommand>
 
           <!-- Restarts System so changes take effect -->
