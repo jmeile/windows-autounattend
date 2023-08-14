@@ -314,7 +314,7 @@ rename it as autounattend.xml
         </SynchronousCommand>
 
       </FirstLogonCommands>
-      <TimeZone>Brisbane</TimeZone>
+      <TimeZone>Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</TimeZone>
     </component>
   </settings>
 </unattend>
