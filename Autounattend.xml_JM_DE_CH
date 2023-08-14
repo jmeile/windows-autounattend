@@ -85,7 +85,7 @@ rename it as autounattend.xml
                    license, which will be automatically set as soon as you are
                    connected to the internet
               -->
-              <WillShowUI>Always</WillShowUI>
+              <WillShowUI>Never</WillShowUI>
             </ProductKey>
         </UserData>
         <EnableFirewall>true</EnableFirewall>
