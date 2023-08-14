@@ -11,7 +11,7 @@ taskkill /f /im OneDrive.exe
 #Comment from Josef Meile: This was set to 1, but we actually need it, so, it
 #is not set to 0
 
-reg add HKLM\Software\Policies\Microsoft\Windows\OneDrive
-reg add HKLM\Software\Policies\Microsoft\Windows\OneDrive /v DisableFileSyncNGSC /t REG_DWORD /d 0
+reg add HKLM\Software\Policies\Microsoft\Windows\OneDrive /f
+reg add HKLM\Software\Policies\Microsoft\Windows\OneDrive /v DisableFileSyncNGSC /t REG_DWORD /d 0 /f
 
 sleep 5
